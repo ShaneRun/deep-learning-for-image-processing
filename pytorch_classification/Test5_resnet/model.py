@@ -6,7 +6,13 @@ class BasicBlock(nn.Module):
     expansion = 1
 
     def __init__(self, in_channel, out_channel, stride=1, downsample=None):
-        super(BasicBlock, self).__init__()
+        '''
+        Q1: how to understand this use of super?
+        A1: The reason we use super is so that child classes that may be using cooperative multiple inheritance
+        will call the correct next parent class function in the Method Resolution Order (MRO).
+        Source: https://stackoverflow.com/questions/576169/understanding-python-super-with-init-methods
+        '''
+        super(BasicBlock, self).__init__()  # Python2, it can be simplified in Python3 'as super().__init__()'
         self.conv1 = nn.Conv2d(in_channels=in_channel, out_channels=out_channel,
                                kernel_size=3, stride=stride, padding=1, bias=False)
         self.bn1 = nn.BatchNorm2d(out_channel)

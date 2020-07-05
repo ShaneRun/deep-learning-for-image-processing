@@ -12,7 +12,7 @@ data_transform = transforms.Compose(
      transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])
 
 # load image
-img = Image.open("../tulip.jpg")
+img = Image.open("../../data_set/flower_data/flower_photos/tulips/112428665_d8f3632f36_n.jpg")
 plt.imshow(img)
 # [N, C, H, W]
 img = data_transform(img)
