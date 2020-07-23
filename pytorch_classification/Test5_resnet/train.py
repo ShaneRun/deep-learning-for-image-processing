@@ -44,8 +44,12 @@ with open('class_indices.json', 'w') as json_file:
     json_file.write(json_str)
 
 batch_size = 200
+'''train_loader = torch.utils.data.DataLoader(train_dataset,
+                                           batch_size=batch_size, shuffle=True,
+                                           num_workers=12)'''
 train_loader = torch.utils.data.DataLoader(train_dataset,
                                            batch_size=batch_size, shuffle=True,
+                                           pin_memory=True,
                                            num_workers=12)
 
 validate_dataset = datasets.ImageFolder(root=image_path + "val",
