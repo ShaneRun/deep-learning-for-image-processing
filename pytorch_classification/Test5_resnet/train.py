@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import os
 import torch.optim as optim
 from model import resnet34, resnet101
+import time
 
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -65,7 +66,9 @@ optimizer = optim.Adam(net.parameters(), lr=0.0001)
 
 best_acc = 0.0
 save_path = './resNet34.pth'
-for epoch in range(3):
+# print start time
+print('Start time: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
+for epoch in range(4):
     # train
     net.train()
     running_loss = 0.0
@@ -104,5 +107,7 @@ for epoch in range(3):
               (epoch + 1, running_loss / step, val_accurate))
 
 print('Finished Training')
+# print end time
+print('End time: ' + time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
 
 
