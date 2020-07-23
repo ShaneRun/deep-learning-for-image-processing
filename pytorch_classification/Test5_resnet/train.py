@@ -28,8 +28,8 @@ data_transform = {
                                transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])])}
 
 data_root = os.path.abspath(os.path.join(os.getcwd(), "../.."))  # get data root path
-image_path = data_root + "/data_set/flower_data/"  # flower data set path
-
+#image_path = data_root + "/data_set/flower_data/"  # flower data set path
+image_path = "/media/cui/13780b72-d2c2-4d14-b11a-88a1d85cdb6f/shane/data/flower_data/"
 train_dataset = datasets.ImageFolder(root=image_path + "train",
                                      transform=data_transform["train"])
 train_num = len(train_dataset)
